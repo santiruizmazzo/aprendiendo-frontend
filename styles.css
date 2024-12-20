@@ -1,0 +1,12 @@
+.ingrediente-faltante {
+  color: red;
+}
+
+#ingrediente-secreto {
+  color: blue;
+}
+
+p {
+  color: brown;
+  font-family: sans-serif;
+}
