@@ -3,18 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Este sitio web sirve como borrador para aprender HTML y CSS">
+  <meta name="author" content="Santiago Ruiz Mazzocato">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="fonts.css">
-  <title>Document</title>
+  <link rel="icon" href="https://art.pixilart.com/b1ef21c79edd2d8.png" type="image/png">
+  <title>Aprendiendo frontend</title>
 </head>
 <body>
-  <h1>Ingredientes</h1>
-  <ul>
-    <li class="ingrediente-faltante">Harina</li>
-    <li>Agua</li>
-    <li>Sal</li>
-    <li id="ingrediente-secreto">Aceite</li>
-  </ul>
-  <p>En este <strong>parrafo</strong> explico mejor la lista</p>
+  <div class="tarjeta">
+    <img class="foto-tarjeta" src="https://i.redd.it/pdvdlcoyw5hz.jpg">
+    <h1 class="titulo-tarjeta">Santiago Ruiz Mazzocato</h1>
+    <h2 class="subtitulo-tarjeta">Programador</h2>
+    <p class="parrafo-tarjeta">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et tempore repellat eveniet eos nemo quaerat, quae expedita quidem dolorum asperiores, omnis ex accusantium perferendis doloremque non? Non nam tenetur voluptates.</p>
+  </div>
+  <div class="tarjeta tarjeta-roja">
+    <img class="foto-tarjeta" src="https://i.redd.it/pdvdlcoyw5hz.jpg">
+    <h1 class="titulo-tarjeta">Santiago Ruiz Mazzocato</h1>
+    <h2 class="subtitulo-tarjeta">Programador</h2>
+    <p class="parrafo-tarjeta">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et tempore repellat eveniet eos nemo quaerat, quae expedita quidem dolorum asperiores, omnis ex accusantium perferendis doloremque non? Non nam tenetur voluptates.</p>
+  </div>
+  <div class="tarjeta tarjeta-amarilla">
+    <img class="foto-tarjeta" src="https://i.redd.it/pdvdlcoyw5hz.jpg">
+    <h1 class="titulo-tarjeta">Santiago Ruiz Mazzocato</h1>
+    <h2 class="subtitulo-tarjeta">Programador</h2>
+    <p class="parrafo-tarjeta">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et tempore repellat eveniet eos nemo quaerat, quae expedita quidem dolorum asperiores, omnis ex accusantium perferendis doloremque non? Non nam tenetur voluptates.</p>
+  </div>
+  <form class="formulario">
+    <h2 class="titulo-formulario">Formulario</h2>
+    
+    <label class="label-formulario" for="nombre">Nombre</label>
+    <input id="nombre" class="input-formulario" type="text" placeholder="John Doe">
+
+    <label class="label-formulario" for="email">Email</label>
+    <input id="email" class="input-formulario" type="email" placeholder="john@doe.com">
+    
+    <label class="label-formulario" for="tipo">Tipo</label>
+    <select id="tipo" class="input-formulario" name="tipo-de-algo">
+      <option value="tipoA">Tipo A</option>
+      <option value="tipoB">Tipo B</option>
+      <option value="tipoC">Tipo C</option>
+    </select>
+    
+    <label class="label-formulario" for="texto">Texto (máximo 140 caracteres)</label>
+    <textarea id="texto" class="input-formulario texto-formulario" rows="5" placeholder="Ingresá tu texto acá..." maxlength="140"></textarea>
+  </form>
 </body>
 </html>
