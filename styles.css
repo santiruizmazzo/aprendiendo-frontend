@@ -1,92 +1,201 @@
 body {
-  font-family: Kanit;
-  background: rgb(255, 255, 255);
-  margin: 0;
-  padding: 30px;
+    font-family: Kanit;
+    background: rgb(255, 255, 255);
+    margin: 0;
+    padding: 30px;
 }
 
 .tarjeta {
-  background: rgb(80, 32, 92);
-  text-align: center;
-  width: 30vw;
-  margin: 10px;
-  box-sizing: border-box;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
-  padding: 30px 10px;
-  color: white;
-  box-shadow: 0 0 10px black;
-  border-radius: 8px;
-  display: inline-block;
+    background: rgb(80, 32, 92);
+    text-align: center;
+    width: 30vw;
+    margin: 10px;
+    box-sizing: border-box;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    padding: 30px 10px;
+    color: white;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.tarjeta:hover {
+    outline: 5px solid magenta;
 }
 
 .tarjeta-roja {
-  background: rgb(137, 29, 31);
+    background: rgb(137, 29, 31);
 }
 
 .tarjeta-amarilla {
-  background: rgb(187, 166, 25);
+    background: rgb(187, 166, 25);
 }
 
 .titulo-tarjeta {
-  margin: 0;
+    margin: 0;
 }
 
 .subtitulo-tarjeta {
-  font-style: italic;
-  font-weight: 100;
-  margin: 0;
-  margin-top: 3px;
+    font-style: italic;
+    font-weight: 100;
+    margin: 0;
+    margin-top: 3px;
 }
 
 .parrafo-tarjeta {
-  text-align: justify;
-  padding: 20px;
-  margin-bottom: 0;
+    text-align: justify;
+    padding: 20px;
+    margin-bottom: 0;
 }
 
 .foto-tarjeta {
-  width: 25%;
-  border-radius: 10px;
-  border: 2px solid white;
+    width: 25%;
+    border-radius: 10px;
+    border: 2px solid white;
 }
 
 .formulario {
-  background: rgb(196, 196, 196);
-  width: 50vw;
-  padding: 20px;
-  margin: auto;
-  font-family: Ubuntu;
-  border: 8px outset black;
+    background: rgb(196, 196, 196);
+    width: 50vw;
+    padding: 20px;
+    margin: auto;
+    font-family: Ubuntu;
+    border: 8px outset black;
 }
 
-.titulo-formulario {
-  margin: 0;
-  font-size: 50px;
-  text-align: center;
-  margin-bottom: 10px;
-  color: rgb(97, 97, 97);
+.formulario > h2 {
+    margin: 0;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: rgb(97, 97, 97);
 }
   
 .input-formulario {
-  font-size: 15px;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 10px;
-  margin: 7px 0;
-  border: 0 solid black;
-  background: white;
-  border-radius: 3px;
-  color: rgb(85, 85, 85);
+    font-size: 15px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    margin: 7px 0;
+    border: 0 solid black;
+    background: white;
+    border-radius: 3px;
+    color: rgb(85, 85, 85);
 }
 
 .label-formulario {
-  font-size: 20px;
-  font-weight: 900;
-  color: rgb(97, 97, 97);
+    font-size: 20px;
+    font-weight: 900;
+    color: rgb(97, 97, 97);
 }
 
 .texto-formulario {
-  font-family: Ubuntu;
-  resize: none;
+    font-family: Ubuntu;
+    resize: none;
+}
+
+fieldset {
+    margin: 20px 0;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+legend {
+    margin: auto;
+}
+
+.faq {
+    padding: 30px;
+    background: rgb(170, 170, 250);
+    margin: 30px 0;
+    box-shadow: 0 0 10px black;
+}
+
+.faq > h2 {
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 40px;
+}
+
+.faq summary {
+    font-size: 18px;
+}
+
+.faq summary:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.faq details p {
+    margin: 8px 0;
+    background-color: rgb(196, 196, 255);
+    padding: 10px;
+}
+
+.caja {
+    background-color: aquamarine;
+    height: 150px;
+    width: 150px;
+    position: relative;
+}
+
+.caja--roja {
+    left: 0;
+    top: 0;
+    background-color: red;
+    transition-property: left, top;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}
+
+.caja--roja:hover {
+    top: 40px;
+    left: 50px;
+}
+
+.caja--azul {
+    background-color: rgb(142, 210, 255);
+}
+
+.caja--verde {
+    background-color: rgb(0, 128, 0);
+    position: absolute;
+    left: 500px;
+    top: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    transition-property: background-color, color;
+    transition-duration: 1s;
+    transition-delay: 0.2s;
+    color: white;
+}
+
+.caja--verde:hover {
+    background-color: rgb(0, 228, 0);
+    color: black;
+}
+
+.contenedor {
+    border: 5px solid black;
+    margin: 30px 0;
+    position: relative;
+}
+
+.caja-flexible {
+    border: 5px solid black;
+    margin: 30px 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+.item-flexible {
+    background-color: rebeccapurple;
+    text-align: center;
+    font-size: 40px;
+    color: white;
+    width: 80px;
 }
