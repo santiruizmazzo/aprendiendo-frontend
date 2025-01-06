@@ -136,7 +136,10 @@ legend {
     background-color: aquamarine;
     height: 150px;
     width: 150px;
+    box-sizing: border-box;
     position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .caja--roja {
@@ -155,6 +158,8 @@ legend {
 
 .caja--azul {
     background-color: rgb(142, 210, 255);
+    font-size: 27px;
+    padding: 10px;
 }
 
 .caja--verde {
@@ -167,7 +172,7 @@ legend {
     font-size: 40px;
     transition-property: background-color, color;
     transition-duration: 1s;
-    transition-delay: 0.2s;
+    transition-delay: 0.1s;
     color: white;
 }
 
@@ -176,15 +181,16 @@ legend {
     color: black;
 }
 
-.contenedor {
+.contenedor-seccion {
     border: 5px solid black;
     margin: 30px 0;
+}
+
+.contenedor {
     position: relative;
 }
 
 .caja-flexible {
-    border: 5px solid black;
-    margin: 30px 0;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -198,4 +204,87 @@ legend {
     font-size: 40px;
     color: white;
     width: 80px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(100px, 300px));
+    grid-template-rows: 100px 300px;
+}
+
+.grid-item {
+    background-color: #48e;
+    margin: 10px;
+    padding: 10px;
+    font-size: 30px;
+    color: #fff;
+}
+
+.grid-item:first-child {
+    background-color: brown;
+}
+
+.grid-item:last-child {
+    background-color: black;
+}
+
+.otro-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 1fr auto;
+    grid-auto-flow: dense;
+    margin: auto;
+    gap: 10px;
+    padding: 10px;
+    min-height: 100vh;
+    grid-template-areas:
+    "header header header"
+    "nav main aside"
+    "footer footer footer";
+}
+
+header, nav, main, aside, footer {
+    padding: 20px;
+    border: 2px solid black;
+}
+
+header {
+    grid-area: header;
+    background-color: #48e;
+    color: #fff;
+    border-color: #48e;
+}
+
+nav {
+    grid-area: nav;
+}
+
+main {
+    grid-area: main;
+}
+
+aside {
+    grid-area: aside;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #000;
+    color: #fff;
+}
+
+.botoncito-subir {
+    box-sizing: border-box;
+    width: 60px;
+    height: 60px;
+    padding: 20px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("imagenes/up_arrow.svg") #000000 no-repeat center;
+    cursor: pointer;
 }
