@@ -376,8 +376,8 @@ legend {
     width: 100px;
     animation-name: move;
     animation-duration: 2s;
-    animation-timing-function: ease-out;
-    animation-direction: normal;
+    animation-timing-function: steps(15);
+    animation-direction: alternate;
     animation-iteration-count: infinite;
 }
 
