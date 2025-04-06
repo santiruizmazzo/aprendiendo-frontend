@@ -1,0 +1,60 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato';
+    background-color: #1a0933;
+}
+
+body * {
+    box-sizing: border-box;
+}
+
+.navbar {
+    background-color: rgba(111,66,193,1);
+    padding: 15px;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.botones-navegacion {
+    justify-self: start;
+    display: flex;
+    align-items: center;
+}
+
+.botones-navegacion a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.busqueda {
+    height: 40px;
+    width: 100%;
+    justify-self: center;
+    display: flex;
+    gap: 10px;
+}
+
+.busqueda button {
+    flex-grow: 1;
+    background-color: rgb(255, 53, 201);
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: bold;
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgb(228, 104, 195);
+    }
+}
+
+.busqueda input {
+    flex-grow: 8;
+    padding: 0 10px;
+}
