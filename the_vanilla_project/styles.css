@@ -2,7 +2,9 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Lato';
-    background-color: #1a0933;
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
 }
 
 body * {
@@ -57,4 +59,30 @@ body * {
 .busqueda input {
     flex-grow: 8;
     padding: 0 10px;
+}
+
+.contenedor {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+    background-color: #1a0933;
+
+    & * {
+        color: #fff;
+    }
+}
+
+.menu-paginacion {
+    border: 2px solid #4ac222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+main {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
