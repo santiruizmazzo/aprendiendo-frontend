@@ -102,10 +102,13 @@ main {
 
 .tarjeta-pelicula {
     border-radius: 25px;
-    background-image: url('https://image.tmdb.org/t/p/w500/6uUaQ5zn9neK1VLqO2sGClbJrb9.jpg');
-    background-size: contain;
+    /* background-image: url('https://image.tmdb.org/t/p/w500/6uUaQ5zn9neK1VLqO2sGClbJrb9.jpg');
+    background-size: contain; */
+    background-color: rgb(46, 27, 82);
     aspect-ratio: 273 / 409;
     position: relative;
+    z-index: 20;
+    overflow: hidden;
 }
 
 .detalles-pelicula {
@@ -121,6 +124,8 @@ main {
     align-items: center;
     padding: 30px;
     gap: 10px;
+    z-index: 22;
+    text-align: center;
 
     &:hover {
         cursor: pointer;
@@ -134,9 +139,29 @@ main {
     & h2 {
         margin: 0;
         font-weight: 900;
+        font-size: 1.5rem;
     }
 
     & p {
-        margin: 0;;
+        margin: 0;
+    }
+}
+
+.placeholder-cargando{
+    position: absolute;
+    left: 0%;
+    height: 100%;
+    width: 75%;
+    background-image: linear-gradient(to left,rgba(46, 27, 82, .05), rgba(103, 60, 184, 0.3), rgba(105, 62, 186, 0.6), rgba(103, 60, 184, 0.3), rgba(46, 27, 82, .05));
+    animation: cargando 1.2s ease-out infinite;
+    z-index: 21;
+}
+  
+@keyframes cargando {
+    0%{
+        left: -75%;
+    }
+    100%{
+        left: 100%;
     }
 }
