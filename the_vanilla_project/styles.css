@@ -45,21 +45,6 @@ body {
     display: flex;
     gap: 10px;
 
-    & button {
-        background-color: rgb(255, 53, 201);
-        border: none;
-        border-radius: 5px;
-        color: #fff;
-        font-weight: bold;
-        font-family: 'Lato';
-        font-size: 1em;
-    
-        &:hover {
-            cursor: pointer;
-            background-color: rgb(228, 104, 195);
-        }
-    }
-
     & input {
         flex-grow: 8;
         padding: 0 10px;
@@ -71,6 +56,21 @@ body {
         &:focus {
             outline: 3px solid rgb(65, 38, 114);
         }
+    }
+}
+
+.boton {
+    background-color: rgb(255, 53, 201);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Lato';
+    font-size: 1em;
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgb(228, 104, 195);
     }
 }
 
@@ -91,6 +91,35 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+.boton-pagina {
+    height: 30px;
+    width: 30px;
+    border: none;
+    background-color: transparent;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.pagina-anterior {
+    background-image: url('icons/arrow_back_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg');
+    background-size: contain;
+}
+
+.pagina-siguiente {
+    background-image: url('icons/arrow_forward_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg');
+    background-size: contain;
+}
+
+.pagina-actual {
+    height: fit-content;
+    width: fit-content;
+    font-size: 1.25rem;
 }
 
 main {
@@ -164,4 +193,8 @@ main {
     100%{
         left: 100%;
     }
+}
+
+.reset {
+    justify-self: self-end;
 }
