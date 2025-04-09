@@ -1,7 +1,9 @@
-let paginaActual = 1;
+let paginaActual = 90;
 let tamanioPagina = 10;
 let totalPeliculas = 0;
 let totalPaginas = 0;
+let endpointPaginaAnterior = null;
+let endpointPaginaSiguiente = null;
 
 const MOVIE_API_URL = 'https://the-movie-api-ykho.onrender.com';
 const endpointBackend = `${MOVIE_API_URL}/movies?page=${paginaActual}&size=${tamanioPagina}`;
@@ -11,18 +13,37 @@ const botonesPaginaAnterior = document.querySelectorAll('.pagina-anterior');
 const botonesPaginaSiguiente = document.querySelectorAll('.pagina-siguiente');
 const botonReset = document.querySelector('.reset');
 
-botonReset.addEventListener("click", function (e) {
+botonReset.addEventListener('click', function () {
     const main = document.querySelector('main');
     main.innerHTML = '';
     console.log(main);
 });
 
+for (boton of botonesPaginaAnterior) {
+    boton.addEventListener('click', function () {
+        if (!endpointPaginaAnterior) return;
+        botonReset.click();
+        obtenerDatosPeliculas(MOVIE_API_URL + endpointPaginaAnterior);
+    });
+}
+
+for (boton of botonesPaginaSiguiente) {
+    boton.addEventListener('click', function () {
+        if (!endpointPaginaSiguiente) return;
+        botonReset.click();
+        obtenerDatosPeliculas(MOVIE_API_URL + endpointPaginaSiguiente);
+    });
+}
+
 function actualizarDatosEnUi(respuestaEnTexto) {
-    const peliculas = JSON.parse(respuestaEnTexto)['movies'];
-    paginaActual = JSON.parse(respuestaEnTexto)['metadata']['page'];
-    tamanioPagina = JSON.parse(respuestaEnTexto)['metadata']['size'];
-    totalPeliculas = JSON.parse(respuestaEnTexto)['metadata']['movie_count'];
-    totalPaginas = JSON.parse(respuestaEnTexto)['metadata']['page_count'];
+    const respuesta = JSON.parse(respuestaEnTexto);
+    const peliculas = respuesta['movies'];
+    paginaActual = respuesta['metadata']['page'];
+    tamanioPagina = respuesta['metadata']['size'];
+    totalPeliculas = respuesta['metadata']['movie_count'];
+    totalPaginas = respuesta['metadata']['page_count'];
+    endpointPaginaAnterior = respuesta['metadata']['links']['previous'];
+    endpointPaginaSiguiente = respuesta['metadata']['links']['next'];
     
     for (const contador of contadoresPaginaActual) {
         contador.innerText = `${paginaActual} / ${totalPaginas}`
