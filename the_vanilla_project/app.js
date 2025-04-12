@@ -19,6 +19,10 @@ const botonReset = document.querySelector('.reset');
 botonReset.addEventListener('click', function () {
     const main = document.querySelector('main');
     main.innerHTML = '';
+    for (let i = 0; i < tamanioPagina; i++) {
+        const tarjetaPelicula = crearTarjetaPelicula();
+        main.appendChild(tarjetaPelicula);
+    }
 });
 
 for (boton of botonesPaginaAnterior) {
@@ -52,15 +56,34 @@ function actualizarDatosEnUi(respuestaEnTexto) {
     }
     
     const main = document.querySelector('main');
-    main.innerHTML = '';
 
-    for (const pelicula of peliculas) {
-        const tarjetaPelicula = crearTarjetaPelicula(pelicula);
-        main.appendChild(tarjetaPelicula);
+    for (let i = 0; i < peliculas.length; i++) {
+        const pelicula = peliculas[i];
+        const tarjetaPelicula = main.children[i];
+        const detallesPelicula = document.createElement('div');
+        detallesPelicula.className = 'detalles-pelicula';
+        const titulo = document.createElement('h2');
+        titulo.innerText = pelicula.title;
+        
+        const director = document.createElement('p');
+        director.innerText = pelicula.director;
+        
+        const anio = document.createElement('p');
+        anio.innerText = pelicula.year;
+        
+        tarjetaPelicula.appendChild(detallesPelicula);
+        detallesPelicula.appendChild(titulo);
+        detallesPelicula.appendChild(director);
+        detallesPelicula.appendChild(anio);
+
         obtenerUrlPosterPelicula(pelicula.title, pelicula.year).then((urlPoster) => {
             tarjetaPelicula.style.backgroundImage = `url(${MOVIE_POSTERS_DB_URL + urlPoster})`;
             tarjetaPelicula.children[0].style.display = 'none';
         });
+    }
+
+    for (let i = peliculas.length; i < tamanioPagina; i++) {
+        main.removeChild(main.children[peliculas.length])
     }
 }
 
@@ -80,26 +103,25 @@ function crearTarjetaPelicula(pelicula) {
 
     const placeholderCargando = document.createElement('div');
     placeholderCargando.className = 'placeholder-cargando';
-
-    const detallesPelicula = document.createElement('div');
-    detallesPelicula.className = 'detalles-pelicula';
-
     tarjetaPelicula.appendChild(placeholderCargando);
-    tarjetaPelicula.appendChild(detallesPelicula);
 
-    const titulo = document.createElement('h2');
-    titulo.innerText = pelicula.title;
-    
-    const director = document.createElement('p');
-    director.innerText = pelicula.director;
-    
-    const anio = document.createElement('p');
-    anio.innerText = pelicula.year;
-
-    detallesPelicula.appendChild(titulo);
-    detallesPelicula.appendChild(director);
-    detallesPelicula.appendChild(anio);
-
+    if (pelicula) {
+        const detallesPelicula = document.createElement('div');
+        detallesPelicula.className = 'detalles-pelicula';
+        const titulo = document.createElement('h2');
+        titulo.innerText = pelicula ? pelicula.title : '';
+        
+        const director = document.createElement('p');
+        director.innerText = pelicula ? pelicula.director : '';
+        
+        const anio = document.createElement('p');
+        anio.innerText = pelicula ? pelicula.year : '';
+        
+        tarjetaPelicula.appendChild(detallesPelicula);
+        detallesPelicula.appendChild(titulo);
+        detallesPelicula.appendChild(director);
+        detallesPelicula.appendChild(anio);
+    }
     return tarjetaPelicula;
 }
 
@@ -114,4 +136,5 @@ function obtenerDatosPeliculas(endpointBackend) {
         .then(actualizarDatosEnUi)
 }
 
+botonReset.click();
 obtenerDatosPeliculas(endpointBackend);
