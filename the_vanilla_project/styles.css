@@ -86,42 +86,6 @@ body {
     }
 }
 
-.menu-paginacion {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 40px;
-}
-
-.boton-pagina {
-    height: 35px;
-    width: 35px;
-    border: none;
-    background-color: rgb(46, 27, 82);
-    border-radius: 7px;
-
-    &:hover {
-        cursor: pointer;
-    }
-}
-
-.pagina-anterior {
-    background-image: url('icons/arrow_back_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg');
-    background-size: contain;
-}
-
-.pagina-siguiente {
-    background-image: url('icons/arrow_forward_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg');
-    background-size: contain;
-}
-
-.pagina-actual {
-    height: fit-content;
-    width: fit-content;
-    font-size: 1.25rem;
-}
-
 main {
     display: grid;
     grid-template-columns: repeat(5, 1fr);

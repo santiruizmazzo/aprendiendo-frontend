@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="fonts.css">
-    <script defer src="app.js"></script>
-    <script defer src="TarjetaPelicula.js"></script>
     <title>The Movie Project</title>
 </head>
 <body>
@@ -21,17 +19,10 @@
         <button class="boton reset">Reset</button>
     </nav>
     <div class="contenedor">
-        <nav class="menu-paginacion">
-            <button class="boton-pagina pagina-anterior"></button>
-            <div class="pagina-actual"></div>
-            <button class="boton-pagina pagina-siguiente"></button>
-        </nav>
+        <menu-paginacion></menu-paginacion>
         <main></main>
-        <nav class="menu-paginacion">
-            <button class="boton-pagina pagina-anterior"></button>
-            <div class="pagina-actual"></div>
-            <button class="boton-pagina pagina-siguiente"></button>
-        </nav>
+        <menu-paginacion></menu-paginacion>
     </div>
+    <script type="module" src="app.js"></script>
 </body>
 </html>

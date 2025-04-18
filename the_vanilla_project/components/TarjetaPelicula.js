@@ -6,7 +6,7 @@ template.innerHTML = `
         }
 
         .tarjeta-pelicula {
-            border-radius: 15px;
+            border-radius: 10px;
             background-size: contain;
             background-color: rgb(46, 27, 82);
             aspect-ratio: 273 / 409;
@@ -24,7 +24,7 @@ template.innerHTML = `
             position: absolute;
             height: 100%;
             width: 100%;
-            border-radius: 15px;
+            border-radius: 10px;
             background: linear-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 15%, rgba(0, 0, 0, 0.834) 40%, rgba(0, 0, 0, 0.462) 60%, rgba(0, 0, 0, 0.041) 75%);
             opacity: 0;
             display: flex;
@@ -85,7 +85,7 @@ const MOVIE_POSTERS_DB_URL = 'https://image.tmdb.org/t/p/w500';
 class TarjetaPelicula extends HTMLElement {
     constructor() {
         super();
-        this.root = this.attachShadow({ mode: 'open'});
+        this.root = this.attachShadow({ mode: 'closed'});
         this.root.append(template.content.cloneNode(true));
         this.cargando = true;
     }
@@ -117,6 +117,5 @@ class TarjetaPelicula extends HTMLElement {
         tarjetaPelicula.style.backgroundImage = `url(${MOVIE_POSTERS_DB_URL + urlPoster})`;
     }
 }
-
 
 customElements.define('tarjeta-pelicula', TarjetaPelicula);

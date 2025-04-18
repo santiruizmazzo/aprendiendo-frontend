@@ -1,3 +1,6 @@
+import './components/MenuPaginacion.js';
+import './components/TarjetaPelicula.js';
+
 let paginaActual = 1;
 let tamanioPagina = 10;
 let totalPeliculas = 0;
@@ -6,39 +9,30 @@ let endpointPaginaAnterior = null;
 let endpointPaginaSiguiente = null;
 
 const MOVIE_API_URL = 'https://the-movie-api-ykho.onrender.com';
+const MOVIE_DB_URL = 'https://api.themoviedb.org/3/search/movie?api_key=da1321128843457e4bab639b36d150e4';
 const endpointBackend = `${MOVIE_API_URL}/movies?page=${paginaActual}&size=${tamanioPagina}`;
 
-const MOVIE_DB_URL = 'https://api.themoviedb.org/3/search/movie?api_key=da1321128843457e4bab639b36d150e4'
+const menusPaginacion = document.querySelectorAll('menu-paginacion');
 
-const contadoresPaginaActual = document.querySelectorAll('.pagina-actual');
-const botonesPaginaAnterior = document.querySelectorAll('.pagina-anterior');
-const botonesPaginaSiguiente = document.querySelectorAll('.pagina-siguiente');
-const botonReset = document.querySelector('.reset');
-
-botonReset.addEventListener('click', function () {
+function crearPaginaDeTarjetasCargando() {
     const main = document.querySelector('main');
     main.innerHTML = '';
     for (let i = 0; i < tamanioPagina; i++) {
         const tarjetaPelicula = document.createElement('tarjeta-pelicula');
         main.appendChild(tarjetaPelicula);
     }
-});
-
-for (boton of botonesPaginaAnterior) {
-    boton.addEventListener('click', function () {
-        if (!endpointPaginaAnterior) return;
-        botonReset.click();
-        obtenerDatosPeliculas(MOVIE_API_URL + endpointPaginaAnterior);
-    });
 }
 
-for (boton of botonesPaginaSiguiente) {
-    boton.addEventListener('click', function () {
-        if (!endpointPaginaSiguiente) return;
-        botonReset.click();
-        obtenerDatosPeliculas(MOVIE_API_URL + endpointPaginaSiguiente);
-    });
+const botonReset = document.querySelector('.reset');
+botonReset.addEventListener('click', crearPaginaDeTarjetasCargando);
+
+function crearPaginaDeTarjetasConDatos(evento) {
+    crearPaginaDeTarjetasCargando();
+    obtenerDatosPeliculas(MOVIE_API_URL + evento.detail.endpoint);
 }
+
+document.addEventListener("pagina-anterior", crearPaginaDeTarjetasConDatos);
+document.addEventListener("pagina-siguiente", crearPaginaDeTarjetasConDatos);
 
 function actualizarDatosEnUi(respuestaEnTexto) {
     const respuesta = JSON.parse(respuestaEnTexto);
@@ -49,9 +43,9 @@ function actualizarDatosEnUi(respuestaEnTexto) {
     totalPaginas = respuesta['metadata']['page_count'];
     endpointPaginaAnterior = respuesta['metadata']['links']['previous'];
     endpointPaginaSiguiente = respuesta['metadata']['links']['next'];
-    
-    for (const contador of contadoresPaginaActual) {
-        contador.innerText = `${paginaActual} / ${totalPaginas}`
+
+    for (const menuPaginacion of menusPaginacion) {
+        menuPaginacion.actualizar(respuesta['metadata']);
     }
     
     const main = document.querySelector('main');
@@ -66,8 +60,12 @@ function actualizarDatosEnUi(respuestaEnTexto) {
         });
     }
 
-    for (let i = peliculas.length; i < tamanioPagina; i++) {
-        main.removeChild(main.children[peliculas.length])
+    eliminarTarjetasSobrantes(main, peliculas.length);
+}
+
+function eliminarTarjetasSobrantes(elementoMain, totalPeliculas) {
+    for (let i = totalPeliculas; i < tamanioPagina; i++) {
+        elementoMain.removeChild(elementoMain.children[totalPeliculas])
     }
 }
 
@@ -92,5 +90,5 @@ function obtenerDatosPeliculas(endpointBackend) {
         .then(actualizarDatosEnUi);
 }
 
-botonReset.click();
+crearPaginaDeTarjetasCargando();
 obtenerDatosPeliculas(endpointBackend);
