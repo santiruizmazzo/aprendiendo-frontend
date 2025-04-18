@@ -9,7 +9,6 @@ const MOVIE_API_URL = 'https://the-movie-api-ykho.onrender.com';
 const endpointBackend = `${MOVIE_API_URL}/movies?page=${paginaActual}&size=${tamanioPagina}`;
 
 const MOVIE_DB_URL = 'https://api.themoviedb.org/3/search/movie?api_key=da1321128843457e4bab639b36d150e4'
-const MOVIE_POSTERS_DB_URL = 'https://image.tmdb.org/t/p/w500'
 
 const contadoresPaginaActual = document.querySelectorAll('.pagina-actual');
 const botonesPaginaAnterior = document.querySelectorAll('.pagina-anterior');
@@ -20,7 +19,7 @@ botonReset.addEventListener('click', function () {
     const main = document.querySelector('main');
     main.innerHTML = '';
     for (let i = 0; i < tamanioPagina; i++) {
-        const tarjetaPelicula = crearTarjetaPelicula();
+        const tarjetaPelicula = document.createElement('tarjeta-pelicula');
         main.appendChild(tarjetaPelicula);
     }
 });
@@ -60,25 +59,10 @@ function actualizarDatosEnUi(respuestaEnTexto) {
     for (let i = 0; i < peliculas.length; i++) {
         const pelicula = peliculas[i];
         const tarjetaPelicula = main.children[i];
-        const detallesPelicula = document.createElement('div');
-        detallesPelicula.className = 'detalles-pelicula';
-        const titulo = document.createElement('h2');
-        titulo.innerText = pelicula.title;
-        
-        const director = document.createElement('p');
-        director.innerText = pelicula.director;
-        
-        const anio = document.createElement('p');
-        anio.innerText = pelicula.year;
-        
-        tarjetaPelicula.appendChild(detallesPelicula);
-        detallesPelicula.appendChild(titulo);
-        detallesPelicula.appendChild(director);
-        detallesPelicula.appendChild(anio);
+        tarjetaPelicula.cargarDetalles(pelicula);
 
-        obtenerUrlPosterPelicula(pelicula.title, pelicula.year).then((urlPoster) => {
-            tarjetaPelicula.style.backgroundImage = `url(${MOVIE_POSTERS_DB_URL + urlPoster})`;
-            tarjetaPelicula.children[0].style.display = 'none';
+        obtenerUrlPosterPelicula(pelicula).then((urlPoster) => {
+            tarjetaPelicula.cargarPoster(urlPoster);
         });
     }
 
@@ -87,42 +71,14 @@ function actualizarDatosEnUi(respuestaEnTexto) {
     }
 }
 
-async function obtenerUrlPosterPelicula(tituloPelicula, anioPelicula) {
-    const resultado = tituloPelicula.split(" ").join("+");
-    const endpointMovieDb = `${MOVIE_DB_URL}&query=${resultado}&year=${anioPelicula}`;
+async function obtenerUrlPosterPelicula(pelicula) {
+    const resultado = pelicula.title.split(" ").join("+");
+    const endpointMovieDb = `${MOVIE_DB_URL}&query=${resultado}&year=${pelicula.year}`;
     const respuesta = await fetch(endpointMovieDb);
     if (!respuesta.ok) {
         throw new Error(`HTTP error: ${respuesta.status}`);
     }
     return JSON.parse(await respuesta.text())['results'][0]['poster_path'];
-}
-
-function crearTarjetaPelicula(pelicula) {
-    const tarjetaPelicula = document.createElement('div');
-    tarjetaPelicula.className = 'tarjeta-pelicula';
-
-    const placeholderCargando = document.createElement('div');
-    placeholderCargando.className = 'placeholder-cargando';
-    tarjetaPelicula.appendChild(placeholderCargando);
-
-    if (pelicula) {
-        const detallesPelicula = document.createElement('div');
-        detallesPelicula.className = 'detalles-pelicula';
-        const titulo = document.createElement('h2');
-        titulo.innerText = pelicula ? pelicula.title : '';
-        
-        const director = document.createElement('p');
-        director.innerText = pelicula ? pelicula.director : '';
-        
-        const anio = document.createElement('p');
-        anio.innerText = pelicula ? pelicula.year : '';
-        
-        tarjetaPelicula.appendChild(detallesPelicula);
-        detallesPelicula.appendChild(titulo);
-        detallesPelicula.appendChild(director);
-        detallesPelicula.appendChild(anio);
-    }
-    return tarjetaPelicula;
 }
 
 function obtenerDatosPeliculas(endpointBackend) {
@@ -133,7 +89,7 @@ function obtenerDatosPeliculas(endpointBackend) {
             }
             return respuesta.text();
         })
-        .then(actualizarDatosEnUi)
+        .then(actualizarDatosEnUi);
 }
 
 botonReset.click();
