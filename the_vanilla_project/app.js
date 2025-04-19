@@ -1,7 +1,7 @@
 import './components/MenuPaginacion.js';
 import './components/TarjetaPelicula.js';
 
-let paginaActual = 1;
+let paginaActual = 90;
 let tamanioPagina = 10;
 let totalPeliculas = 0;
 let totalPaginas = 0;
