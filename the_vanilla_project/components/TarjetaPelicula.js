@@ -7,25 +7,29 @@ template.innerHTML = `
 
         .tarjeta-pelicula {
             border-radius: 10px;
-            background-size: contain;
+            background-size: cover;
+            background-position: center;
             background-color: rgb(46, 27, 82);
             aspect-ratio: 273 / 409;
             position: relative;
-            z-index: 20;
             overflow: hidden;
             transition: scale 0.15s ease-out;
 
             &:hover {
                 scale: 1.08;
             }
+
+            &:hover .detalles-pelicula {
+                opacity: 1;
+            }
         }
 
         .detalles-pelicula {
             position: absolute;
+            inset: 0;
             height: 100%;
             width: 100%;
-            border-radius: 10px;
-            background: linear-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 15%, rgba(0, 0, 0, 0.834) 40%, rgba(0, 0, 0, 0.462) 60%, rgba(0, 0, 0, 0.041) 75%);
+            border-radius: inherit;
             opacity: 0;
             display: flex;
             flex-flow: column wrap;
@@ -33,12 +37,13 @@ template.innerHTML = `
             align-items: center;
             padding: 30px;
             gap: 10px;
-            z-index: 22;
             text-align: center;
-
-            &:hover {
-                opacity: 1;
-            }
+            background: linear-gradient(
+                rgb(46, 17, 90) 0%, 
+                rgb(46, 17, 90) 15%, 
+                rgba(46, 17, 90, 0.834) 40%, 
+                rgba(46, 17, 90, 0.462) 60%, 
+                rgba(46, 17, 90, 0.041) 75%);
 
             & h2, p {
                 color: #ffffff;
@@ -62,7 +67,6 @@ template.innerHTML = `
             width: 75%;
             background-image: linear-gradient(to left,rgba(46, 27, 82, .05), rgba(103, 60, 184, 0.3), rgba(105, 62, 186, 0.6), rgba(103, 60, 184, 0.3), rgba(46, 27, 82, .05));
             animation: cargando 1.2s ease-out infinite;
-            z-index: 21;
         }
         
         @keyframes cargando {
@@ -72,6 +76,21 @@ template.innerHTML = `
             100%{
                 left: 100%;
             }
+        }
+
+        .pelicula-vista {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: 13%;
+            aspect-ratio: 1/1;
+            background-image: url('icons/check_circle_24dp_75FB4C_FILL1_wght400_GRAD0_opsz24.svg');
+            background-size: 65%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: rgb(46, 27, 82);
+            border-radius: 10px 0 0 0;
+            z-index: 3;
         }
     </style>
 
@@ -106,6 +125,12 @@ class TarjetaPelicula extends HTMLElement {
         const anio = document.createElement('p');
         anio.innerText = pelicula.year;
         
+        if (pelicula.watched) {
+            const tick = document.createElement('div');
+            tick.className = 'pelicula-vista';
+            tarjetaPelicula.appendChild(tick);
+        }
+
         detallesPelicula.appendChild(titulo);
         detallesPelicula.appendChild(director);
         detallesPelicula.appendChild(anio);

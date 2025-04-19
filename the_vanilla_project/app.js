@@ -23,16 +23,13 @@ function crearPaginaDeTarjetasCargando() {
     }
 }
 
-const botonReset = document.querySelector('.reset');
-botonReset.addEventListener('click', crearPaginaDeTarjetasCargando);
-
 function crearPaginaDeTarjetasConDatos(evento) {
     crearPaginaDeTarjetasCargando();
     obtenerDatosPeliculas(MOVIE_API_URL + evento.detail.endpoint);
 }
 
-document.addEventListener("pagina-anterior", crearPaginaDeTarjetasConDatos);
-document.addEventListener("pagina-siguiente", crearPaginaDeTarjetasConDatos);
+document.addEventListener('pagina-anterior', crearPaginaDeTarjetasConDatos);
+document.addEventListener('pagina-siguiente', crearPaginaDeTarjetasConDatos);
 
 function actualizarDatosEnUi(respuestaEnTexto) {
     const respuesta = JSON.parse(respuestaEnTexto);

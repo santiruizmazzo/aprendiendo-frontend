@@ -79,7 +79,7 @@ body {
     display: flex;
     flex-flow: column;
     justify-content: space-between;
-    background-color: #1a0933;
+    background-color: rgb(26, 9, 51);
 
     & * {
         color: #fff;
