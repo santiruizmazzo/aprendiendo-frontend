@@ -35,7 +35,7 @@ template.innerHTML = `
             flex-flow: column wrap;
             justify-content: flex-start;
             align-items: center;
-            padding: 30px;
+            padding: 8%;
             gap: 10px;
             text-align: center;
             background: linear-gradient(
