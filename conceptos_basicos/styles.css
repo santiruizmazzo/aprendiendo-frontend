@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+:root {
+    --main-color: rgb(232, 133, 47);
+    --main-color-light: color-mix(in oklab, var(--main-color) 80%, white);
+    --main-color-dark: color-mix(in oklab, var(--main-color) 80%, black);
+}
+
 body {
     font-family: Kanit;
     background: rgb(255, 255, 255);
@@ -399,14 +407,13 @@ legend {
 }
 
 .contenedor-font-sizes {
-    display: flex;
     gap: 15px;
     padding: 10px;
-    font-size: 10px;
+    font-size: 0.75rem;
 
     & p {
-        display: inline-block;
-        font-family: sans-serif;
+        display: block;
+        font-family: "Play", sans-serif;
     }
 }
 
@@ -416,10 +423,4 @@ legend {
 
 .parrafo-em {
     font-size: 2em;
-}
-
-:root {
-    --main-color: rgb(232, 133, 47);
-    --main-color-light: color-mix(in oklab, var(--main-color) 80%, white);
-    --main-color-dark: color-mix(in oklab, var(--main-color) 80%, black);
 }
