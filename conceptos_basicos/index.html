@@ -11,147 +11,148 @@
     <title>Aprendiendo frontend</title>
 </head>
 <body>
+    <div class="patron-fondo">
+        <div class="tarjeta">
+            <img loading="lazy" class="foto-tarjeta" src="https://i.redd.it/pdvdlcoyw5hz.jpg">
+            <h2 class="titulo-tarjeta">Santiago Ruiz Mazzocato</h2>
+            <h3 class="subtitulo-tarjeta">Programador</h3>
+            <p class="parrafo-tarjeta">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et tempore repellat eveniet eos nemo quaerat, quae expedita quidem dolorum asperiores, omnis ex accusantium perferendis doloremque non? Non nam tenetur voluptates.</p>
+        </div>
+        <div class="tarjeta tarjeta-roja">
+            <img loading="lazy" class="foto-tarjeta" src="https://i.redd.it/pdvdlcoyw5hz.jpg">
+            <h2 class="titulo-tarjeta">Santiago Ruiz Mazzocato</h2>
+            <h3 class="subtitulo-tarjeta">Programador</h3>
+            <p class="parrafo-tarjeta">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et tempore repellat eveniet eos nemo quaerat, quae expedita quidem dolorum asperiores, omnis ex accusantium perferendis doloremque non? Non nam tenetur voluptates.</p>
+        </div>
+        <div class="tarjeta tarjeta-amarilla">
+            <img loading="lazy" class="foto-tarjeta" src="https://i.redd.it/pdvdlcoyw5hz.jpg">
+            <h2 class="titulo-tarjeta">Santiago Ruiz Mazzocato</h2>
+            <h3 class="subtitulo-tarjeta">Programador</h3>
+            <p class="parrafo-tarjeta">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et tempore repellat eveniet eos nemo quaerat, quae expedita quidem dolorum asperiores, omnis ex accusantium perferendis doloremque non? Non nam tenetur voluptates.</p>
+        </div>
 
-    <div class="tarjeta">
-        <img loading="lazy" class="foto-tarjeta" src="https://i.redd.it/pdvdlcoyw5hz.jpg">
-        <h2 class="titulo-tarjeta">Santiago Ruiz Mazzocato</h2>
-        <h3 class="subtitulo-tarjeta">Programador</h3>
-        <p class="parrafo-tarjeta">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et tempore repellat eveniet eos nemo quaerat, quae expedita quidem dolorum asperiores, omnis ex accusantium perferendis doloremque non? Non nam tenetur voluptates.</p>
-    </div>
-    <div class="tarjeta tarjeta-roja">
-        <img loading="lazy" class="foto-tarjeta" src="https://i.redd.it/pdvdlcoyw5hz.jpg">
-        <h2 class="titulo-tarjeta">Santiago Ruiz Mazzocato</h2>
-        <h3 class="subtitulo-tarjeta">Programador</h3>
-        <p class="parrafo-tarjeta">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et tempore repellat eveniet eos nemo quaerat, quae expedita quidem dolorum asperiores, omnis ex accusantium perferendis doloremque non? Non nam tenetur voluptates.</p>
-    </div>
-    <div class="tarjeta tarjeta-amarilla">
-        <img loading="lazy" class="foto-tarjeta" src="https://i.redd.it/pdvdlcoyw5hz.jpg">
-        <h2 class="titulo-tarjeta">Santiago Ruiz Mazzocato</h2>
-        <h3 class="subtitulo-tarjeta">Programador</h3>
-        <p class="parrafo-tarjeta">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et tempore repellat eveniet eos nemo quaerat, quae expedita quidem dolorum asperiores, omnis ex accusantium perferendis doloremque non? Non nam tenetur voluptates.</p>
-    </div>
-
-    <form class="formulario">
-        <h2>Formulario</h2>
-        
-        <fieldset>
-            <legend>INFORMACIÓN BÁSICA</legend>
-            <label class="label-formulario" for="nombre">Nombre</label>
-            <input id="nombre" class="input-formulario" type="text" placeholder="John Doe">
-            <label class="label-formulario" for="email">Email</label>
-            <input id="email" class="input-formulario" type="email" placeholder="john@doe.com">
-        </fieldset>
-        
-        <fieldset>
-            <legend>INFORMACIÓN EXTRA</legend>
-            <label class="label-formulario" for="tipo">Tipo</label>
-            <select id="tipo" class="input-formulario" name="tipo-de-algo">
-                <option value="tipoA">Tipo A</option>
-                <option value="tipoB">Tipo B</option>
-                <option value="tipoC">Tipo C</option>
-            </select>
+        <form class="formulario">
+            <h2>Formulario</h2>
             
-            <label class="label-formulario" for="elegir-referente">Referente</label>
-            <input id="elegir-referente" list="referente" name="referente" class="input-formulario">
-            <datalist id="referente" name="lista-de-datos">
-                <option value="user1">Santi</option>
-                <option value="user2">Nico</option>
-                <option value="user3">Joaquin</option>
-            </datalist>
+            <fieldset>
+                <legend>INFORMACIÓN BÁSICA</legend>
+                <label class="label-formulario" for="nombre">Nombre</label>
+                <input id="nombre" class="input-formulario" type="text" placeholder="John Doe">
+                <label class="label-formulario" for="email">Email</label>
+                <input id="email" class="input-formulario" type="email" placeholder="john@doe.com">
+            </fieldset>
             
-            <label class="label-formulario" for="texto">Texto (máximo 140 caracteres)</label>
-            <textarea id="texto" class="input-formulario texto-formulario" rows="5" placeholder="Ingresá tu texto acá..." maxlength="140"></textarea>
-        </fieldset>
-        <label for="checkbox">Acepto los <a href="">términos y condiciones</a></label>
-        <input id="checkbox" class="terminos-y-condiciones" type="checkbox">
-    </form>
+            <fieldset>
+                <legend>INFORMACIÓN EXTRA</legend>
+                <label class="label-formulario" for="tipo">Tipo</label>
+                <select id="tipo" class="input-formulario" name="tipo-de-algo">
+                    <option value="tipoA">Tipo A</option>
+                    <option value="tipoB">Tipo B</option>
+                    <option value="tipoC">Tipo C</option>
+                </select>
+                
+                <label class="label-formulario" for="elegir-referente">Referente</label>
+                <input id="elegir-referente" list="referente" name="referente" class="input-formulario">
+                <datalist id="referente" name="lista-de-datos">
+                    <option value="user1">Santi</option>
+                    <option value="user2">Nico</option>
+                    <option value="user3">Joaquin</option>
+                </datalist>
+                
+                <label class="label-formulario" for="texto">Texto (máximo 140 caracteres)</label>
+                <textarea id="texto" class="input-formulario texto-formulario" rows="5" placeholder="Ingresá tu texto acá..." maxlength="140"></textarea>
+            </fieldset>
+            <label for="checkbox">Acepto los <a href="">términos y condiciones</a></label>
+            <input id="checkbox" class="terminos-y-condiciones" type="checkbox">
+        </form>
 
-    <div class="faq">
-        <h2>Preguntas frecuentes</h2>
-        <details>
-            <summary>¿Quién soy?</summary>
-            <p>Mi nombre es Santiago Ruiz Mazzocato 🥸</p>
-        </details>
-        <details>
-            <summary>¿De dónde soy?</summary>
-            <p>Soy de Concepción del Uruguay, Entre Ríos, Argentina 🇦🇷</p>
-        </details>
-        <details>
-            <summary>¿Qué hago?</summary>
-            <p>Estoy estudiando Licenciatura en Análisis de Sistemas (🖥️) en la Facultad de Ingeniería de la UBA</p>
-        </details>
-    </div>
+        <div class="faq">
+            <h2>Preguntas frecuentes</h2>
+            <details>
+                <summary>¿Quién soy?</summary>
+                <p>Mi nombre es Santiago Ruiz Mazzocato 🥸</p>
+            </details>
+            <details>
+                <summary>¿De dónde soy?</summary>
+                <p>Soy de Concepción del Uruguay, Entre Ríos, Argentina 🇦🇷</p>
+            </details>
+            <details>
+                <summary>¿Qué hago?</summary>
+                <p>Estoy estudiando Licenciatura en Análisis de Sistemas (🖥️) en la Facultad de Ingeniería de la UBA</p>
+            </details>
+        </div>
 
-    <h2>Position relative y transición de position</h2>
-    <div class="contenedor contenedor-seccion">
-        <div class="caja">CAJA 1</div>
-        <div class="caja caja--roja">CAJA 2</div>
-        <div class="caja caja--azul">CAJA 3</div>
-    </div>
+        <h2>Position relative y transición de position</h2>
+        <div class="contenedor contenedor-seccion">
+            <div class="caja">CAJA 1</div>
+            <div class="caja caja--roja">CAJA 2</div>
+            <div class="caja caja--azul">CAJA 3</div>
+        </div>
 
-    <h2>Position absolute y transición de color y background color</h2>
-    <div class="contenedor  contenedor-seccion">
-        <div class="caja">CAJA 1</div>
-        <div class="caja caja--verde">CAJA 2</div>
-        <div class="caja caja--azul">CAJA 3 Y MUCHISIMO TEXTO MAS</div>
-    </div>
+        <h2>Position absolute y transición de color y background color</h2>
+        <div class="contenedor  contenedor-seccion">
+            <div class="caja">CAJA 1</div>
+            <div class="caja caja--verde">CAJA 2</div>
+            <div class="caja caja--azul">CAJA 3 Y MUCHISIMO TEXTO MAS</div>
+        </div>
 
-    <h2>Flexbox (centrar un div)</h2>
-    <div class="caja-flexible contenedor-seccion">
-        <div class="item-flexible">1</div>
-    </div>
+        <h2>Flexbox (centrar un div)</h2>
+        <div class="caja-flexible contenedor-seccion">
+            <div class="item-flexible">1</div>
+        </div>
 
-    <h2>Grid</h2>
-    <div class="grid contenedor-seccion">
-        <div class="grid-item">1</div>
-        <div class="grid-item">2</div>
-        <div class="grid-item">3</div>
-        <div class="grid-item">4</div>
-        <div class="grid-item">5</div>
-        <div class="grid-item">6</div>
-        <div class="grid-item">7</div>
-        <div class="grid-item">8</div>
-    </div>
+        <h2>Grid</h2>
+        <div class="grid contenedor-seccion">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+            <div class="grid-item">7</div>
+            <div class="grid-item">8</div>
+        </div>
 
-    <h2>Layout con grid (propiedad grid-template-areas)</h2>
-    <div class="otro-grid contenedor-seccion">
-        <header>HEADER</header>
-        <nav>NAV</nav>
-        <main>MAIN</main>
-        <aside>ASIDE</aside>
-        <footer>FOOTER</footer>
-    </div>
+        <h2>Layout con grid (propiedad grid-template-areas)</h2>
+        <div class="otro-grid contenedor-seccion">
+            <header>HEADER</header>
+            <nav>NAV</nav>
+            <main>MAIN</main>
+            <aside>ASIDE</aside>
+            <footer>FOOTER</footer>
+        </div>
 
-    <h2>Bento grid</h2>
-    <div class="bento-grid contenedor-seccion">
-        <div class="bento-item">A</div>
-        <div class="bento-item">B</div>
-        <div class="bento-item">C</div>
-        <div class="bento-item">D</div>
-        <div class="bento-item">E</div>
-        <div class="bento-item">F</div>
-        <div class="bento-item">G</div>
-        <div class="bento-item">H</div>
-        <div class="bento-item">I</div>
-        <div class="bento-item">J</div>
-        <div class="bento-item">K</div>
-        <div class="bento-item">L</div>
-        <div class="bento-item">M</div>
-        <div class="bento-item">N</div>
-        <div class="bento-item">O</div>
-    </div>
+        <h2>Bento grid</h2>
+        <div class="bento-grid contenedor-seccion">
+            <div class="bento-item">A</div>
+            <div class="bento-item">B</div>
+            <div class="bento-item">C</div>
+            <div class="bento-item">D</div>
+            <div class="bento-item">E</div>
+            <div class="bento-item">F</div>
+            <div class="bento-item">G</div>
+            <div class="bento-item">H</div>
+            <div class="bento-item">I</div>
+            <div class="bento-item">J</div>
+            <div class="bento-item">K</div>
+            <div class="bento-item">L</div>
+            <div class="bento-item">M</div>
+            <div class="bento-item">N</div>
+            <div class="bento-item">O</div>
+        </div>
 
-    <h2>Animaciones (usando keyframes)</h2>
-    <div class="contenedor-animaciones contenedor-seccion">
-        <div class="pulser"></div>
-        <img src="https://i.seadn.io/s/raw/files/d0b1bdfdbfa8256263fb91f29f1befe1.png?auto=format&dpr=1&w=1000">
-    </div>
+        <h2>Animaciones (usando keyframes)</h2>
+        <div class="contenedor-animaciones contenedor-seccion">
+            <div class="pulser"></div>
+            <img src="https://i.seadn.io/s/raw/files/d0b1bdfdbfa8256263fb91f29f1befe1.png?auto=format&dpr=1&w=1000">
+        </div>
 
-    <h2>Tamaños de fonts</h2>
-    <div class="contenedor-font-sizes contenedor-seccion">
-        <p>Tamaño default del contenedor</p>
-        <p class="parrafo-rem">Tamaño doble del heredado de root</p>
-        <p class="parrafo-em">Tamaño doble del heredado del contenedor</p>
+        <h2>Tamaños de fonts</h2>
+        <div class="contenedor-font-sizes contenedor-seccion">
+            <p>Tamaño default del contenedor</p>
+            <p class="parrafo-rem">Tamaño doble del heredado de root</p>
+            <p class="parrafo-em">Tamaño doble del heredado del contenedor</p>
+        </div>
     </div>
 
     <div class="botoncito-subir"></div>
