@@ -1,0 +1,95 @@
+:root {
+    --color-fondo: #252017;
+    --color-fondo-footer: #16130e6e;
+    --color-punto: #705b28;
+    --color-texto: #93825b;
+    --color-texto-2: #4d442f;
+    --color-texto-3: rgb(219, 196, 141);
+
+    --tamaño-casilla: 15px;
+    --tamaño-punto: 0.75px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--color-texto);
+}
+
+body {
+    min-height: 100dvh;
+    position: relative;
+    background-color: var(--color-fondo);
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    opacity: 0.2;
+    background-color: var(--color-fondo);
+    background-image: radial-gradient(var(--color-punto) var(--tamaño-punto), var(--color-fondo) var(--tamaño-punto));
+    background-size: var(--tamaño-casilla) var(--tamaño-casilla);
+}
+
+main {
+    margin: auto;
+    width: 60%;
+    padding: 40px;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+footer {
+    background-color: var(--color-fondo-footer);
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.contenedor {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.caja {
+    min-height: 100px;
+    background-color: var(--color-fondo-footer);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 15px 0 15px 0;
+
+    &:hover {
+        outline: 2px dashed var(--color-texto);
+    }
+}
+
+.boton {
+    cursor: pointer;
+    min-height: 50px;
+    border-radius: 3px;
+    border: none;
+    background-color: var(--color-texto);
+    color: var(--color-fondo);
+    font-weight: bold;
+    box-shadow: 0 7px 0 var(--color-texto-2);
+
+    &:active {
+        box-shadow: none;
+        transform: translateY(7px);
+    }
+}
